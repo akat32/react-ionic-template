@@ -3,10 +3,26 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
+import { createBrowserHistory } from 'history';
+import { IonApp, IonRouterOutlet } from '@ionic/react';
+import { IonReactRouter } from '@ionic/react-router';
+import { RecoilRoot } from 'recoil';
+
+
+const history = createBrowserHistory();
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <RecoilRoot >
+      <IonApp>
+        <IonReactRouter>
+          <IonRouterOutlet>
+            <App />
+          </IonRouterOutlet>
+        </IonReactRouter>
+      </IonApp>
+    </RecoilRoot>
   </React.StrictMode>,
   document.getElementById('root')
 );
